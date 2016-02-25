@@ -1,0 +1,19 @@
+<link rel='import' href='../../bower_components/polymer/polymer.html'>
+
+<link rel='import' href='../../bower_components/paper-button/paper-button.html'>
+<link rel='import' href='../../bower_components/paper-input/paper-input.html'>
+
+<dom-module id='more-info-lock'>
+  <style>
+    paper-input {
+      display: inline-block;
+    }
+  </style>
+  <template>
+    <div hidden='[[!stateObj.attributes.codeFormat]]'>
+      <paper-input label='code' value='{{enteredCode}}' pattern='[[stateObj.attributes.codeFormat]]' type='password'></paper-input>
+      <paper-button on-tap='handleUnlockTap' hidden$='[[!isLocked]]'>Unlock</paper-button>
+      <paper-button on-tap='handleLockTap' hidden$=[[isLocked]]>Lock</paper-button>
+    </div>
+  </template>
+</dom-module>
